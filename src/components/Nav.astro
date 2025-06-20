@@ -1,3 +1,35 @@
 ---
-import type {}
+import type { NavItemProps} from "../interfaces/interface";
+import { NavItems } from "../contents/db";
+
+const leftItems = NavItems.filter(link => link.position == 'left');
+const centerItems = NavItems.filter(link => link.position == 'center');
+const rightItems = NavItems.filter(link => link.position == 'right');
 ---
+
+<nav class="w-full flex justify-between items-center bg-transparent px-5 py-5">
+    <div class="flex gap-4 ">
+        {leftItems.map(link => (
+            <a href={link.href} 
+            class="bg-gray-200 text-black font-extralight hover:bg-blue-900 px-8 py-2 rounded-full transition-colors duration-400"
+            >{link.label}
+            </a>
+        ))}
+    </div>
+    <div class="flex gap-4 bg-black border-1 border-gray-300 rounded-full">
+        {centerItems.map(link => (
+            <a href={link.href} 
+            class="bg-black text-white font-extralight hover:bg-blue-900 px-8 py-2 rounded-full transition-colors duration-400"
+            >{link.label}
+            </a>
+        ))}
+    </div>
+    <div class="flex gap-4 ">
+        {rightItems.map(link => (
+            <a href={link.href} 
+            class="bg-gray-200 text-black font-extralight hover:bg-blue-900 px-8 py-2 rounded-full transition-colors duration-400"
+            >{link.label}
+            </a>
+        ))}
+    </div>
+</nav>
