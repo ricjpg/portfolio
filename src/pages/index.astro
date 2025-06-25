@@ -1,27 +1,32 @@
 ---
-import "../styles/global.css"
-import SkillsCard from "../components/SkillsCard.astro";
-import Nav from "../components/Nav.astro";
-import { Skills, NavItems} from "../contents/db";
+import "../styles/global.css";
+import TerminalCard from "../components/TerminalCard.astro";
+import { SocialList, terminalList } from "../contents/db";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>RicDev 💻</title>
-	</head>
-	<body>
-		<Nav items={NavItems} />
-		<h1 class="text-8xl font-black">Astro</h1>
-		<div class="text-4xl font-extrabold text-white flex flex-auto justify-center p-5">Skills</div>
-		<div class="flex flex-row gap-5 justify-center ">
-			{Skills.map((skillSet) => (
-				<SkillsCard {...skillSet} />
-			))}
-		</div>
-		
-	</body>
-</html>
+<Layout>
+  <div slot="after-header">
+    <div class="place-items-center">
+      <div class="flex mx-10 mt-10 overflow-hidden w-full max-w-6xl">
+        <Image
+          src="/images/banner.svg"
+          alt="Hello Image"
+          width={1920}
+          height={1080}
+          class="mt-10 mb-10 w-64 flex-auto"
+        />
+      </div>
+      <div class="mb-10">
+        <span class="text-white font-light text-xl wrap-break-word">
+          I am a systems engineer and web developer, specializing in the backend
+          development of robust and scalable applications.
+        </span>
+      </div>
+      <div class="mt-5">
+        {terminalList.map((entry) => <TerminalCard {...entry} />)}
+      </div>
+    </div>
+  </div>
+</Layout>

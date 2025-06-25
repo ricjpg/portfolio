@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import type { ProjectProps } from "../../interfaces/interface";
+import { projectsList } from "../../contents/db";
+
+export async function getStaticPaths() {
+  return projectsList.map((entry: ProjectProps) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: ProjectProps;
+}
+
+const { entry } = Astro.props as Props;
+---
+
+<Layout>
+  <div slot="after-header">
+    <h1 class="text-white">hi</h1>
+  </div>
+</Layout>
