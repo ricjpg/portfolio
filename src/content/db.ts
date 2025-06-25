@@ -90,9 +90,9 @@ export const SocialList: Social[] = [
     icon: "https://s.magecdn.com/social/tc-instagram.svg",
   },
   {
-    name: "facebook",
-    url: "https://www.facebook.com/ric.null",
-    icon: "https://s.magecdn.com/social/tc-facebook.svg",
+    name: "youtube",
+    url: "https://www.youtube.com/@rictsx",
+    icon: "https://s.magecdn.com/social/tc-youtube.svg",
   },
   {
     name: "github",

@@ -1,24 +1,53 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import type { ProjectProps } from "../../interfaces/interface";
-import { projectsList } from "../../contents/db";
+
+type Project = CollectionEntry<"projects"> & {
+  render: () => Promise<{ Content: any; headings: any[] }>;
+} & { slug: string };
 
 export async function getStaticPaths() {
-  return projectsList.map((entry: ProjectProps) => ({
+  const projectEntries: Project[] = await getCollection("projects");
+  return projectEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
 interface Props {
-  entry: ProjectProps;
+  entry: Project;
 }
 
-const { entry } = Astro.props as Props;
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
 ---
 
 <Layout>
-  <div slot="after-header">
-    <h1 class="text-white">hi</h1>
+  <div slot="after-header" class="place-items-center mt-13 w-full max-w-8xl">
+    <div class="text-white place-items-center">
+      <p class="text-cyan-400 text-7xl font-extrabold">{entry.data.title}</p>
+      <p class="text-xl">{entry.data.description}</p>
+    </div>
+  </div>
+
+  <div slot="after-header" class="place-items-center mt-10">
+    <div class="text-white">
+      <p class="text-2xl text-white italic">INDEX</p>
+      <ul>
+        {
+          headings.map((h) => (
+            <li class={`ml-${(h.depth - 1) * 4}`}>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="text-white mt-12 max-w-4xl">
+      <article class="prose prose-invert max-w-3xl mx-auto px-4">
+        <Content />
+      </article>
+    </div>
   </div>
 </Layout>

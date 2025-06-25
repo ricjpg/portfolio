@@ -1,38 +1,50 @@
 ---
-import type { NavItemProps} from "../interfaces/interface";
-import { NavItems } from "../contents/db";
+import type { NavItemProps } from "../interfaces/interface";
+import { NavItems } from "../content/db";
 
-const leftItems = NavItems.filter(link => link.position == 'left');
-const centerItems = NavItems.filter(link => link.position == 'center');
-const rightItems = NavItems.filter(link => link.position == 'right');
+const leftItems = NavItems.filter((link) => link.position == "left");
+const centerItems = NavItems.filter((link) => link.position == "center");
+const rightItems = NavItems.filter((link) => link.position == "right");
 ---
 
-<nav class="w-full flex justify-between items-center bg-transparent px-5 py-5 ">
-    <div class="flex gap-4 ">
-        {leftItems.map(link => (
-            <a href={link.href} 
-            class="bg-gray-200 text-black font-mono font-extralight hover:text-white hover:bg-gradient-to-r 
+<nav class="w-full flex justify-between items-center bg-transparent px-5 py-5">
+  <div class="flex gap-4">
+    {
+      leftItems.map((link) => (
+        <a
+          href={link.href}
+          class="bg-gray-200 text-black font-mono font-extralight hover:text-white hover:bg-gradient-to-r 
             from-violet-400 to-blue-700 hover:font-extrabold  px-8 py-2 rounded-full transition-colors duration-400"
-            >{link.label}
-            </a>
-        ))}
-    </div>
-    <div class="flex gap-4 bg-black border-1 border-gray-400 rounded-full">
-        {centerItems.map(link => (
-            <a href={link.href} 
-            class="bg-black text-white font-mono font-extralight hover:bg-gradient-to-r 
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+  <div class="flex gap-4 bg-black border-1 border-gray-400 rounded-full">
+    {
+      centerItems.map((link) => (
+        <a
+          href={link.href}
+          class="bg-black text-white font-mono font-extralight hover:bg-gradient-to-r 
             from-violet-400 to-blue-700 px-8 py-2 rounded-full transition-colors duration-400"
-            >{link.label}
-            </a>
-        ))}
-    </div>
-    <div class="flex gap-4 ">
-        {rightItems.map(link => (
-            <a href={link.href} 
-            class="bg-gray-200 text-black font-mono font-extralight hover:text-white hover:bg-gradient-to-r 
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+  <div class="flex gap-4">
+    {
+      rightItems.map((link) => (
+        <a
+          href={link.href}
+          class="bg-gray-200 text-black font-mono font-extralight hover:text-white hover:bg-gradient-to-r 
             from-violet-400 to-blue-700 hover:font-extrabold  px-8 py-2 rounded-full transition-colors duration-400"
-            >{link.label}
-            </a>
-        ))}
-    </div>
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
 </nav>
