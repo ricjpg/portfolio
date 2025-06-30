@@ -11,27 +11,27 @@ export const skills: SkillSetProps[] = [
   {
     tittle: "Frontend Development",
     skills: [
-      { name: "HTML+CSS", level: 50 },
+      { name: "HTML+CSS", level: 60 },
       { name: "JavaScript", level: 60 },
-      { name: "React", level: 70 },
-      { name: "AstroJS", level: 80 },
+      { name: "React", level: 65 },
+      { name: "AstroJS", level: 65 },
     ],
   },
   {
     tittle: "Backen Development",
     skills: [
-      { name: "Python+FastAPI", level: 50 },
-      { name: "Java+Spring", level: 60 },
-      { name: "Python+Django", level: 70 },
-      { name: "PHP+Laravel", level: 80 },
+      { name: "Python+FastAPI", level: 70 },
+      { name: "Java+Spring", level: 70 },
+      { name: "Python+Django", level: 60 },
+      { name: "PHP+Laravel", level: 70 },
     ],
   },
   {
     tittle: "DevOps",
     skills: [
       { name: "Terraform", level: 50 },
-      { name: "AzureCloud", level: 60 },
-      { name: "AWS", level: 70 },
+      { name: "AzureCloud", level: 50 },
+      { name: "AWS", level: 55 },
       { name: "CI/CD", level: 50 },
     ],
   },
@@ -69,7 +69,7 @@ export const HorizontalCardList: HorizontalCardProps[] = [
   {
     tittle: "About me 🧑🏾‍💻",
     description:
-      "I'm in the final year of my Systems Engineering degree at the National Autonomous University of Honduras. My academic journey began with a technical high school education in Computer Science, which laid a strong foundation in IT and problem-solving. I'm fluent in both Spanish and English, and I also have skills in graphic design. I hold a CCNA 1 certification in networking fundamentals, and I completed the Oracle Next Education (ONE) programming course offered by Alura Latam, where I gained practical experience in software development and industry best practices.",
+      "Systems Engineering student at the National Autonomous University of Honduras, with experience in developing web and mobile applications. I began my journey in tech through hardware support and repair, later expanding into graphic design, and eventually finding my passion in software development. I stand out for my ability to learn quickly, adapt to new challenges, and maintain a strong commitment to quality in every project.",
   },
   {
     tittle: "Academic Background 📚",
@@ -79,7 +79,7 @@ export const HorizontalCardList: HorizontalCardProps[] = [
   {
     tittle: "Experience 📐",
     description:
-      "I'm in the final year of my Systems Engineering degree at the National Autonomous University of Honduras. My academic journey began with a technical high school education in Computer Science, which laid a strong foundation in IT and problem-solving. I'm fluent in both Spanish and English, and I also have skills in graphic design. I hold a CCNA 1 certification in networking fundamentals, and I completed the Oracle Next Education (ONE) programming course offered by Alura Latam, where I gained practical experience in software development and industry best practices.",
+      "Although I haven't yet worked in a formal job position, I've actively participated in several university and personal projects that reflect my technical skills and passion for software development. Throughout my studies, I've worked on web and mobile applications, applying technologies like React, Spring Boot, FastAPI, and SQL/NoSQL databases. These projects have helped me strengthen my abilities in full-stack development, version control with Git, and agile teamwork.",
   },
 ];
 
@@ -110,7 +110,7 @@ export const terminalList: TerminalProps[] = [
   {
     title: "About me 🧑🏾‍💻",
     description:
-      "I'm in the final year of my Systems Engineering degree at the National Autonomous University of Honduras. My academic journey began with a technical high school education in Computer Science, which laid a strong foundation in IT and problem-solving. I'm fluent in both Spanish and English, and I also have skills in graphic design. I hold a CCNA 1 certification in networking fundamentals, and I completed the Oracle Next Education (ONE) programming course offered by Alura Latam, where I gained practical experience in software development and industry best practices.",
+      "Systems Engineering student at the National Autonomous University of Honduras, with experience in developing web and mobile applications. I began my journey in tech through hardware support and repair, later expanding into graphic design, and eventually finding my passion in software development. I stand out for my ability to learn quickly, adapt to new challenges, and maintain a strong commitment to quality in every project.",
   },
   {
     title: "Academic Background 📚",
@@ -120,7 +120,7 @@ export const terminalList: TerminalProps[] = [
   {
     title: "Experience 📐",
     description:
-      "I'm in the final year of my Systems Engineering degree at the National Autonomous University of Honduras. My academic journey began with a technical high school education in Computer Science, which laid a strong foundation in IT and problem-solving. I'm fluent in both Spanish and English, and I also have skills in graphic design. I hold a CCNA 1 certification in networking fundamentals, and I completed the Oracle Next Education (ONE) programming course offered by Alura Latam, where I gained practical experience in software development and industry best practices.",
+      "Although I haven't yet worked in a formal job position, I've actively participated in several university and personal projects that reflect my technical skills and passion for software development. Throughout my studies, I've worked on web and mobile applications, applying technologies like React, Spring Boot, FastAPI, and SQL/NoSQL databases. These projects have helped me strengthen my abilities in full-stack development, version control with Git, and agile teamwork.",
   },
 ];
 
@@ -129,7 +129,7 @@ export const projectsList: ProjectProps[] = [
     slug: "/prosene",
     title: "PROSENE",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+      "Plataforma accesible desarrollada para PROSENE-UNAH, que permite a estudiantes con necesidades especiales enviar y rastrear solicitudes en línea. Desarrollada con Vue.js, FastAPI y PostgreSQL, mejora la comunicación y gestión entre estudiantes y el personal del programa de atención especial.",
     img: "prosene.png",
     href: "/projects/prosene",
   },
@@ -137,7 +137,7 @@ export const projectsList: ProjectProps[] = [
     slug: "/xatruch",
     title: "Xatruch",
     description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters",
+      "Sistema integral para la gestión de vuelos, rutas, horarios y pasajeros de la aerolínea Xatruch. Desarrollado con Java, Spring, Laravel y MySQL, permite registrar vuelos nacionales e internacionales, controlar aeronaves y ofrecer acceso por roles, optimizando procesos operativos y administrativos.",
     img: "plane.jpg",
     href: "/projects/xatruch",
   },
@@ -145,7 +145,7 @@ export const projectsList: ProjectProps[] = [
     slug: "/classifier",
     title: "Cats and dogs classifier",
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there",
+      "Aplicación web que clasifica en tiempo real si una imagen o video muestra un perro o un gato, utilizando redes neuronales convolucionales (CNN) entrenadas con TensorFlow. Cuenta con una interfaz web construida en HTML, CSS y JavaScript para cargar imágenes o usar la cámara directamente desde el navegador",
     img: "classifier.png",
     href: "/projects/classifier",
   },

@@ -32,22 +32,21 @@ const { Content, headings } = await entry.render();
 
   <div slot="after-header" class="place-items-center mt-10">
     <div class="text-white">
-      <p class="text-2xl text-white italic">INDEX</p>
+      <p class="text-2xl text-white">Index</p>
       <ul>
         {
           headings.map((h) => (
             <li class={`ml-${(h.depth - 1) * 4}`}>
-              <a href={`#${h.slug}`}>{h.text}</a>
+              <a href={`#${h.slug}`}>- {h.text}</a>
             </li>
           ))
         }
       </ul>
-    </div>
-
-    <div class="text-white mt-12 max-w-4xl">
-      <article class="prose prose-invert max-w-3xl mx-auto px-4">
-        <Content />
-      </article>
+      <div class="text-white mt-12 max-w-4xl">
+        <article class="prose prose-invert max-w-3xl mx-auto px-4">
+          <Content />
+        </article>
+      </div>
     </div>
   </div>
 </Layout>
