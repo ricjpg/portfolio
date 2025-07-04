@@ -7,8 +7,10 @@ const centerItems = NavItems.filter((link) => link.position == "center");
 const rightItems = NavItems.filter((link) => link.position == "right");
 ---
 
-<nav class="w-full flex justify-between items-center bg-transparent px-5 py-5">
-  <div class="flex gap-4">
+<nav
+  class="w-full flex flex-wrap md:flex-nowrap justify-between items-center bg-transparent px-3 py-3 gap-3"
+>
+  <div class="flex flex-wrap gap-2 md:gap-4">
     {
       leftItems.map((link) => (
         <a
@@ -21,7 +23,9 @@ const rightItems = NavItems.filter((link) => link.position == "right");
       ))
     }
   </div>
-  <div class="flex gap-4 bg-black border-1 border-gray-400 rounded-full">
+  <div
+    class="flex flex-wrap justify-center gap-2 sm:gap-4 bg-black border border-gray-400 rounded-full px-2 py-1"
+  >
     {
       centerItems.map((link) => (
         <a
@@ -34,7 +38,7 @@ const rightItems = NavItems.filter((link) => link.position == "right");
       ))
     }
   </div>
-  <div class="flex gap-4">
+  <div class="flex flex-wrap gap-2 md:gap-4">
     {
       rightItems.map((link) => (
         <a

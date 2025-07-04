@@ -3,13 +3,7 @@ import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import TerminalCard from "../components/TerminalCard.astro";
-import {
-  NavItems,
-  skills,
-  SocialList,
-  terminalList,
-  HorizontalCardList,
-} from "../content/db";
+import { NavItems, SocialList } from "../content/db";
 import SkillsCard from "../components/SkillsCard.astro";
 import { Image } from "astro:assets";
 ---
@@ -23,7 +17,7 @@ import { Image } from "astro:assets";
     <title>ricnull</title>
   </head>
   <body>
-    <div>
+    <div class="">
       <Nav items={NavItems} />
       <slot name="after-header" />
 

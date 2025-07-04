@@ -154,7 +154,7 @@ export const projectsList: ProjectProps[] = [
     title: "Plataforma de E-commerce y Analítica",
     description:
       "Infraestructura para una plataforma de e-commerce manejada con Terraform",
-    img: "classifier.png",
+    img: "general-diagram.png",
     href: "/projects/ecommerce",
   },
 ];
