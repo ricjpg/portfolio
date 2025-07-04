@@ -65,23 +65,23 @@ export const NavItems: NavItemProps[] = [
   },
 ];
 
-export const HorizontalCardList: HorizontalCardProps[] = [
-  {
-    tittle: "About me 🧑🏾‍💻",
-    description:
-      "Systems Engineering student at the National Autonomous University of Honduras, with experience in developing web and mobile applications. I began my journey in tech through hardware support and repair, later expanding into graphic design, and eventually finding my passion in software development. I stand out for my ability to learn quickly, adapt to new challenges, and maintain a strong commitment to quality in every project.",
-  },
-  {
-    tittle: "Academic Background 📚",
-    description:
-      "I'm in the final year of my Systems Engineering degree at the National Autonomous University of Honduras. My academic journey began with a technical high school education in Computer Science, which laid a strong foundation in IT and problem-solving. I'm fluent in both Spanish and English, and I also have skills in graphic design. I hold a CCNA 1 certification in networking fundamentals, and I completed the Oracle Next Education (ONE) programming course offered by Alura Latam, where I gained practical experience in software development and industry best practices.",
-  },
-  {
-    tittle: "Experience 📐",
-    description:
-      "Although I haven't yet worked in a formal job position, I've actively participated in several university and personal projects that reflect my technical skills and passion for software development. Throughout my studies, I've worked on web and mobile applications, applying technologies like React, Spring Boot, FastAPI, and SQL/NoSQL databases. These projects have helped me strengthen my abilities in full-stack development, version control with Git, and agile teamwork.",
-  },
-];
+// export const HorizontalCardList: HorizontalCardProps[] = [
+//   {
+//     tittle: "About me 🧑🏾‍💻",
+//     description:
+//       "Systems Engineering student at the National Autonomous University of Honduras, with experience in developing web and mobile applications. I began my journey in tech through hardware support and repair, later expanding into graphic design, and eventually finding my passion in software development. I stand out for my ability to learn quickly, adapt to new challenges, and maintain a strong commitment to quality in every project.",
+//   },
+//   {
+//     tittle: "Academic Background 📚",
+//     description:
+//       "I'm in the final year of my Systems Engineering degree at the National Autonomous University of Honduras. My academic journey began with a technical high school education in Computer Science, which laid a strong foundation in IT and problem-solving. I'm fluent in both Spanish and English, and I also have skills in graphic design. I hold a CCNA 1 certification in networking fundamentals, and I completed the Oracle Next Education (ONE) programming course offered by Alura Latam, where I gained practical experience in software development and industry best practices.",
+//   },
+//   {
+//     tittle: "Experience 📐",
+//     description:
+//       "Although I haven't yet worked in a formal job position, I've actively participated in several university and personal projects that reflect my technical skills and passion for software development. Throughout my studies, I've worked on web and mobile applications, applying technologies like React, Spring Boot, FastAPI, and SQL/NoSQL databases. These projects have helped me strengthen my abilities in full-stack development, version control with Git, and agile teamwork.",
+//   },
+// ];
 
 export const SocialList: Social[] = [
   {
@@ -148,5 +148,13 @@ export const projectsList: ProjectProps[] = [
       "Aplicación web que clasifica en tiempo real si una imagen o video muestra un perro o un gato, utilizando redes neuronales convolucionales (CNN) entrenadas con TensorFlow. Cuenta con una interfaz web construida en HTML, CSS y JavaScript para cargar imágenes o usar la cámara directamente desde el navegador",
     img: "classifier.png",
     href: "/projects/classifier",
+  },
+  {
+    slug: "/ecommerce",
+    title: "Plataforma de E-commerce y Analítica",
+    description:
+      "Infraestructura para una plataforma de e-commerce manejada con Terraform",
+    img: "classifier.png",
+    href: "/projects/ecommerce",
   },
 ];

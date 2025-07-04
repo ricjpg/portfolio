@@ -17,12 +17,14 @@ import ProjectCard from "../components/ProjectCard.astro";
           class="mt-10 mb-10 w-64 flex-auto"
         />
       </div>
-      <div class="flex mb-10 w-6xl place-items-center">
+      <div class="flex flex-row mb-10 w-6xl place-items-center">
         <span class="text-white font-light text-xl flex place-items-center">
           Here you will find some of the projects I have collaborated on.
         </span>
       </div>
-      <div class="flex w-6xl gap-5">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl"
+      >
         {projectsList.map((entry) => <ProjectCard {...entry} />)}
       </div>
     </div>
