@@ -45,8 +45,6 @@ La arquitectura propuesta se estructura en tres capas principales que proporcion
 Responsabilidad: Gestión de identidad, autenticación y seguridad perimetral.
 Recursos incluidos:
 
--- Azure Entra ID (configuración de tenants, grupos, aplicaciones)
-
 -- Políticas de seguridad y acceso condicional
 
 -- Configuración de autenticación para usuarios y clientes
@@ -96,7 +94,7 @@ Recursos incluidos:
 
 -- Synapse Analytics
 
--- Power BI (configuración de workspaces y permisos)
+-- Power BI (Deshabilitado por temas de costos)
 
 -- Data Factory (si aplica)
 
@@ -121,8 +119,6 @@ Security & Identity: Se enfoca exclusivamente en la capa de seguridad porque:
 
 -- Los cambios de seguridad requieren revisiones más rigurosas
 
--- Diferentes equipos (InfoSec vs DevOps) gestionan estos recursos
-
 -- Las políticas de compliance y auditoría son específicas para seguridad
 
 -- Los ciclos de actualización son más lentos y controlados
@@ -145,10 +141,6 @@ Data & Analytics: Agrupa todo el ecosistema de datos porque:
 
 -- Los datos tienen ciclos de vida y políticas de retención específicas
 
--- Las regulaciones de privacidad (GDPR, CCPA) afectan toda la capa de datos
-
--- Los equipos de Data Engineering tienen expertise específico
-
 -- Los patrones de acceso y performance son similares
 
 <br />
@@ -159,8 +151,6 @@ Minimizar dependencias entre repositorios mientras maximizamos la cohesión inte
 
 <br />
 **Security & Identity (Alta cohesión):**
-
--- Azure Entra ID, políticas de acceso, Key Vault y NSGs trabajan juntos para crear un perímetro de seguridad coherente
 
 -- Un cambio en autenticación típicamente requiere ajustes en políticas y certificados
 
@@ -176,8 +166,6 @@ Minimizar dependencias entre repositorios mientras maximizamos la cohesión inte
 
 -- Azure Functions y Notification Service comparten patrones de configuración
 
--- Front Door requiere conocimiento de todos los endpoints backend
-
 <br />
 
 ## Data & Analytics (Cohesión de dominio):
@@ -186,7 +174,7 @@ Minimizar dependencias entre repositorios mientras maximizamos la cohesión inte
 
 -- Las políticas de backup deben aplicarse consistentemente a todos los almacenes
 
--- Power BI requiere permisos coordinados con Synapse Analytics
+-- Power BI requiere permisos coordinados con Synapse Analytics (Deshabilitado por temas de costos)
 
 -- La configuración de red para datos debe ser uniforme por seguridad
 
@@ -195,15 +183,25 @@ Minimizar dependencias entre repositorios mientras maximizamos la cohesión inte
 
 # Evidencia de los despliegues:
 
+![azure-rg](../../../public/images/azure-rg.png)
+
 <br />
+
+# Evidencia en la terminal:
+
+![terminal](../../../public/images/terminal-1.png)
+![terminal](../../../public/images/terminal-2.png)
+![terminal](../../../public/images/terminal-3.png)
+![terminal](../../../public/images/terminal-4.png)
+
 <br />
 
 # Repositorios:
 
 <br />
 
--- [Infrastructure Security](https://github.com/MikeWinchester/infrastructure-security)
+-- **[Infrastructure Security](https://github.com/MikeWinchester/infrastructure-security)**
 
--- [Infrastructure Analytics](https://github.com/MikeWinchester/infrastructure-analytics)
+-- **[Infrastructure Analytics](https://github.com/MikeWinchester/infrastructure-analytics)**
 
--- [Infrastructure Applications](https://github.com/ricjpg/app-infrastructure)
+-- **[Infrastructure Applications](https://github.com/ricjpg/app-infrastructure)**
