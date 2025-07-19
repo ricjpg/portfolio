@@ -18,7 +18,7 @@ export const skills: SkillSetProps[] = [
     ],
   },
   {
-    tittle: "Backen Development",
+    tittle: "Backend Development",
     skills: [
       { name: "Python+FastAPI", level: 70 },
       { name: "Java+Spring", level: 70 },
@@ -156,5 +156,12 @@ export const projectsList: ProjectProps[] = [
       "Infraestructura para una plataforma de e-commerce manejada con Terraform",
     img: "general-diagram.png",
     href: "/projects/ecommerce",
+  },
+  {
+    slug: "/smart-cache",
+    title: "Smart cache",
+    description: "Creacion de un Pipeline de datos y API con cache inteligente",
+    img: "smart-cache.gif",
+    href: "/projects/smart-cache",
   },
 ];
