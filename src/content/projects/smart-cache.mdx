@@ -93,7 +93,7 @@ se realiza la verificacion de la clave `spotify:features:all` en la base de dato
 Con este mismo metodo podemos cachear las respuestas en el endpoint
 
 ```js
-/featues/custom?=arg
+/features/custom?=arg
 ```
 
 el cual recibe un argumento que es encargado de
@@ -192,6 +192,39 @@ docker push acrapicache.azurecr.io/api-cache:latest
 <br />
 
 <Frame>
+<ol >
+Rutas importantes:
+<li class='text-green-500'>
+Security
+```jsx
+{domain}/signup <- METHOD_POST (Para el registro) 
+{domain}/login <- METHOD_POST (devuelve un token)
+
+````
+</li>
+<li class='text-green-500'>
+Resources
+```jsx
+{domain}/features <- METHOD_GET (devuelve los primero 100k registros)
+{domain}/features/custom?=arg <- METHOD_GET (Devuleve una lista filtrada por el argumento arg)
+{domain}/features/new <- METHOD_POST (Crea un nuevo registro en la db) Requiere Autenticacion y Autorizacion
+
+````
+
+</li>
+<li class='text-green-500'>
+MISC
+```jsx
+{domain}/ <- METHOD_GET (Devulve un saludo) Requiere Autenticacion
+{domain}/api/version <- METHOD_GET (devuelve la version de la API)
+
+````
+
+</li>
+</ol>
+</Frame>
+
+<Frame>
 ## 🔗 Enlaces importantes:
 
 <br />
@@ -206,3 +239,5 @@ docker push acrapicache.azurecr.io/api-cache:latest
   </li>
 </ol>
 </Frame>
+```
+````
