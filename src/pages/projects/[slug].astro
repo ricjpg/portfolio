@@ -36,14 +36,14 @@ const { Content, headings } = await entry.render();
       <ul>
         {
           headings.map((h) => (
-            <li class={`ml-${(h.depth - 1) * 4}`}>
-              <a href={`#${h.slug}`}>- {h.text}</a>
+            <li class={`ml-${(h.depth - 1) * 4} leading-[2]`}>
+              <a href={`#${h.slug}`}>-- {h.text}</a>
             </li>
           ))
         }
       </ul>
       <div class="text-white mt-12 max-w-4xl">
-        <article class="prose prose-invert max-w-3xl mx-auto px-4">
+        <article class="prose mx-auto px-4 leading-[1.8]">
           <Content />
         </article>
       </div>

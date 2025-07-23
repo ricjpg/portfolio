@@ -40,4 +40,5 @@ export interface ProjectProps {
   img?: string;
   description: string;
   href?: string;
+  date: string;
 }

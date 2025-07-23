@@ -2,8 +2,12 @@
 title: "Smart cache"
 description: "Pipeline de Datos y API con Caché Inteligente."
 date: "2025-10-10"
+toc_min_heading_level: 1
+toc_max_heading_level: 5
 tags: ["FastApi", "Azure", "Docker", "Python", "SQL", "Redis"]
 ---
+
+import Frame from "../../components/Frame.astro";
 
 ![Classifier Banner](../../../public/images/smart-cache-low.gif)
 
@@ -12,17 +16,25 @@ tags: ["FastApi", "Azure", "Docker", "Python", "SQL", "Redis"]
 
 # Objetivo General
 
-Desarrollar una solución integral de backend que demuestre la capacidad de migrar datos a gran escala, exponerlos a través de una API segura y optimizada, y desplegarla en un entorno de nube productivo. El proyecto culmina con la implementación de un sistema de monitoreo y una estrategia de caché con invalidación automática.
-
+<Frame>
+  Desarrollar una solución integral de backend que demuestre la capacidad de
+  migrar datos a gran escala, exponerlos a través de una API segura y
+  optimizada, y desplegarla en un entorno de nube productivo. El proyecto
+  culmina con la implementación de un sistema de monitoreo y una estrategia de
+  caché con invalidación automática.
+</Frame>
 <br />
 <br />
 
 # Fase 1: Preparación y Migración de Datos
 
-El primer paso es construir la base de datos en la nube que alimentará nuestra
-aplicación.
-**Selección del Dataset:**
-Para el desarrollo de este proyecto seleccione el dataset **Spotify Tracks DB** - el cual puedes encontrar en el siguiente link:
+<Frame>
+
+El primer paso es construir la base de datos en la nube que alimentará nuestra aplicación.
+
+<br />
+**Selección del Dataset:** Para el desarrollo de este proyecto seleccione el dataset
+**Spotify Tracks DB** - el cual puedes encontrar en el siguiente link:
 
 <br />- [🔗 Spotify Tracks
 DB](https://www.kaggle.com/datasets/zaheenhamidani/ultimate-spotify-tracks-db)
@@ -31,132 +43,166 @@ tiempo.
 <br />
 
 **Migración de Datos con Azure Data Factory:** <br/>
-Utilizando  **Azure Data Factory** para crear un pipeline que extraiga los datos del dataset seleccionado (previamente
-subido a un Azure Blob Storage como un archivo .csv). Transforma y carga ETL estos
-datos en una tabla específica dentro de una base de datos provisionada en  **Azure**
- (puede ser  **Azure SQL**  o  **Azure Database for PostgreSQL** , como se vio en
-los videos).
+Utilizando  **Azure Data Factory** creamos un pipeline que extraiga los datos del dataset seleccionado (previamente
+subido a un Azure Blob Storage como un archivo .csv). Transformamos y cargamos estos
+datos en una tabla específica dentro de una base de datos provisionada en  **Azure Database SQL**
 
+</Frame>
 <br />
 <br />
 
-# Fase 2: Desarrollo de API y Autenticación
+# Fase 2: Desarrollo de API y Autenticación 🔐
 
-Con los datos en la nube, crearás una API para interactuar con ellos, aplicando
+<Frame>
+
+Con los datos en la nube, procedemos a la construccion de nuestro backend, aplicando
 buenas prácticas de desarrollo y seguridad.
- **Tecnología:**
-Se recomienda desarrollar la API utilizando  **FastAPI**  Py thon). Sin
-embargo, tienes la libertad de usar otro lenguaje o framework con el que
-te sientas más cómodo.
- **Autenticación y Autorización con Firebase:**
-Implementa  **Firebase Authentication**  para gestionar el registro e inicio de
-sesión de usuarios.
-La API debe estar protegida, y el acceso a ciertos endpoints dependerá de
-un token JWT válido generado por Firebase.
-La lógica de autorización es flexible, pero se sugiere replicar el modelo
-visto en clase:
-En tu tabla de Users en la base de datos, incluye campos booleanos
-como is_active y is_admin para determinar los permisos de un usuario.
- **Endpoints Requeridos:**
-POST /signup Para el registro de nuevos usuarios en Firebase y en tu base
-de datos.
-POST /login Para autenticar a un usuario y obtener su token de acceso.
-GET /catalog Est e endpoint tendrá un comportamiento dual:
-Si se llama  **sin query strings** , debe retornar todos los registros del
-catálogo.
-Si se llama  **con un query string**  (ej: /catalog?category=A), debe retornar
-solo la sección de datos que coincida con el filtro.
-El diseño exacto del catálogo y si requiere autenticación de usuario o
-de administrador queda a tu discreción.
 
+<br />
+## **Tecnología:** - FastAPI Python - Firebase
+
+</Frame>
 <br />
 <br />
 
 # Fase 3: Monitoreo de Rendimiento
 
-Para entender cómo se comporta tu API bajo carga, la integrarás con los servicios
-de monitoreo de Azure.
- **Configuración de Application Insights:**
-Integra tu API con  **Azure Application Insights**  para capturar telemetría,
-trazas de solicitudes, tiempos de respuesta y posibles errores.
- **Pruebas de Carga:**
-Realiza múltiples llamadas (requests) consecutivas a tu endpoint GET
-/catalog.
-Analiza el panel de Application Insights para observar el comportamiento
-de la API identifica los tiempos promedio de respuesta, el número de
-solicitudes por segundo y cualquier cuello de botella.
+<Frame>
 
+Utilizamos el servicio de Azure Applications Insights para observar el comportamiento de la API, con esto podemos capturar
+telemetría, trazas de solicitudes, tiempos de respuesta y posibles errores en los request a los diferentes endpoints.
+
+</Frame>
 <br />
 <br />
 
 # Fase 4: Implementación de Caché con Redis (El Reto)
 
-Para mejorar drásticamente los tiempos de respuesta, implementarás una capa de
-caché.
- **Integración con Redis:**
-Configura y conecta una base de datos de  **Redis**  a tu API.
- **Persistencia en Caché y Reto de Llaves Dinámicas:**
-Modifica el endpoint GET /catalog para que, antes de consultar la base de
-datos, primero verifique si la respuesta ya existe en Redis.
-La  **llave (key)**  utilizada para guardar cada respuesta en Redis debe
-generarse dinámicamente a partir de los  **query strings**  de la petición. Por
-ejemplo, una petición a /catalog?category=A generará una llave
-como catalog:category=A.
-Si la llave existe en Redis, la respuesta se devuelve inmediatamente
-(cache hit).
-Si no existe, se consulta la base de datos, se almacena la respuesta en
-Redis usando la llave dinámica y luego se devuelve al usuario (cache
-miss).
+<Frame>
+
+Implementamos una base de datos de cache (**Azure cache database**) para mejorar los tiempos de respuesta al endpoint `/features`
+Este endpoint es responsable de devolver los primeros 100,000 registros de la base de datos spotify.features, que es aproximadamente
+15mb, esto se hizo meramente con propositos didacticos, ya en en un entorno real/profesional, esto deberia de estar paginado para
+no sobrecargar la respuesta.
+Una vez llamado por primera vez este endpoint, se realiza un proceso de escritura en la base de datos de cache con la clave `spotify:features:all`
+indicanto que de la tabla features, este responde con toda la data y no esta filtrada, de esta manera en la siguiente llamada al endpoint
+se realiza la verificacion de la clave `spotify:features:all` en la base de datos de cache para poder entregar la respuesta desde esta base de datos
 
 <br />
+
+Con este mismo metodo podemos cachear las respuestas en el endpoint
+
+```js
+/featues/custom?=arg
+```
+
+el cual recibe un argumento que es encargado de
+filtrar la respuesta de esta consulta, por ejemplo: al pasar el argumento `arg=Pop` nos retornada todos los registros de los cuales el generado
+sea Pop, al mismo tiempo se creara una key para la base da datos de cache con este argumento, para este caso: `spotify:features:Pop`
+
+</Frame>
+<br />
+
 <br />
 
 # Fase 5: Invalidación de Caché
 
-El caché debe ser inteligente. Si los datos originales cambian, el caché obsoleto
-debe ser eliminado.
- **Endpoint de Creación:**
-Implementa un endpoint POST (ej: /catalog) que permita agregar un nuevo
-registro a la tabla principal. Este endpoint debe estar protegido (por
-ejemplo, solo para administradores).
- **Lógica de Invalidación:**
-Después de agregar el nuevo registro a la base de datos, el sistema debe
-identificar a qué categoría o filtro pertenece este nuevo dato.
-A continuación, debes  **eliminar la llave específica en Redis**  que
-corresponde a esa categoría.
- **Verificación del Flujo:
-Paso 1**  Realiza una petición GET con un query string (ej: ?category=C). La
-primera vez será lenta, la segunda será rápida.
-**Paso 2**  Usa el endpoint POST para agregar un nuevo ítem que pertenezca
-a la category=C. La lógica de invalidación deberá borrar la
-llave catalog:category=C de Redis.
-**Paso 3**  Vuelve a realizar la misma petición GET del Paso 1. Esta
-vez,  **deberá ser lenta de nuevo** , ya que el caché fue invalidado.
+<Frame>
 
-<br />
+Estas key en la base de datos de cache seran eliminadas despues de 3600 minutos, el equivalente a una hora, este parametro podria ser modificado
+para orientarlo con los objetivos del negocio. Tambien estas llaves son eliminadas cuando se carga un nuevo registro del mismo genero desde el
+endpoint
+
+```js
+/features/new
+```
+
+Supongamos que cargamos el siguiente payload:
+
+```json {1}
+{
+  "genre": "Dance",
+  "artist_name": "Lana Del Rey",
+  "track_name": "Pretty When You Cry",
+  "track_id": "6PnluwP0fjGnpIBsqTdUTq",
+  "popularity": "60",
+  "duration_ms": "234147"
+}
+```
+
+Esto eliminara la llave si acaso existe en la base de datos de cache
+
+```json
+spotify:features:Dance
+```
+
+para que cuando se haga el llamo al endpoint /features/custom?=Dance no se devuelva una respuesta que no contenga todos los datos
+esto conlleva a que cuando se haga el primer llamado a este endpoint la respuesta sea lenta, debido a que no esta cacheada y Tambien
+debe de hacer un proceso de escritura en la base de datos de cache, pero la segunda y posteriores llamadas seran significativamente
+mas rapidas.
+
+</Frame>
 <br />
 
 # Fase 6: Despliegue en la Nube con Docker 🐳
 
-Finalmente, toda la aplicación debe ser empaquetada y desplegada para
-funcionar en un entorno de nube real.
- **Containerización:**
-Crea un Dockerfile para tu aplicación de API, asegurándote de que incluya
-todas las dependencias y configuraciones necesarias para ejecutarse de
-forma aislada.
- **Release en la Nube:**
+<Frame>
+Finalmente vamos a empaquetar la aplicacion en una imagen de docker para poder desplegarla en un Azure container Registry
 
-Publica la imagen de Docker en un registro de contenedores (como Azure
-Container Registry o Docker Hub).
-Despliega el contenedor en un servicio de Azure como  **Azure App
-Service**  o  **Azure Container Apps**  para que la API sea accesible
-públicamente.
+Creamos un Dockerfile en la raiz del directorio donde esta ubicada nuestra aplicacion y configuramos el entorno,
+hacemos un update, copiamos nuestra app y seteamos nuestras variables de entorno, luego de eso exponemos un puerto de la siguiente manera:
 
+```jsx
+
+FROM python:3.10-slim
+
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y curl apt-transport-https gnupg gcc g++ make && \
+    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
+    curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
+    apt-get update && \
+    ACCEPT_EULA=Y apt-get install -y msodbcsql17 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+RUN test -f .env && rm .env || echo "no .env file found"
+
+EXPOSE 8000
+
+CMD [ "uvicorn" , "main:app", "--host" , "0.0.0.0" , "--port" , "8000" ]
+
+```
+
+utilizamos los siguientes comandos para poder subir nuestra imagen de docker al container registry:
+
+```bash
+docker push acrapicache.azurecr.io/api-cache:latest
+```
+
+</Frame>
 <br />
 <br />
 
-<br />- [🔗 Enlace de la
-API](https://api-cache-hfeva3d2bfcbehhu.eastus-01.azurewebsites.net/)
+<Frame>
+## 🔗 Enlaces importantes:
 
-<br />- [🔗 Enlace del Repositorio en
-GitHub](https://github.com/ricjpg/pipeline-cache)
+<br />
+<ol class='text-green-500 font-mono font-bold'>
+  <li >
+    {" "}
+    [🔗 Enlace de la API](https://api-cache-hfeva3d2bfcbehhu.eastus-01.azurewebsites.net/)
+  </li>
+  <li>
+    {" "}
+    [🔗 Enlace del Repositorio en GitHub](https://github.com/ricjpg/pipeline-cache)
+  </li>
+</ol>
+</Frame>

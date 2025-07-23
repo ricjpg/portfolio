@@ -25,7 +25,14 @@ import ProjectCard from "../components/ProjectCard.astro";
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl"
       >
-        {projectsList.map((entry) => <ProjectCard {...entry} />)}
+        {
+          projectsList
+            .slice()
+            .sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            )
+            .map((entry) => <ProjectCard key={entry.slug} {...entry} />)
+        }
       </div>
     </div>
   </div>

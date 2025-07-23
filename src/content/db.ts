@@ -1,7 +1,6 @@
 import type {
   SkillSetProps,
   NavItemProps,
-  HorizontalCardProps,
   Social,
   TerminalProps,
   ProjectProps,
@@ -35,6 +34,25 @@ export const skills: SkillSetProps[] = [
       { name: "CI/CD", level: 50 },
     ],
   },
+  {
+    tittle: "Databases",
+    skills: [
+      { name: "SQL", level: 70 },
+      { name: "Oracle", level: 70 },
+      { name: "MySQL", level: 70 },
+      { name: "PostgreSQL", level: 70 },
+      { name: "MongoDB", level: 50 },
+    ],
+  },
+  {
+    tittle: "Other technologies",
+    skills: [
+      { name: "Jira", level: 70 },
+      { name: "Mermaid Diagram", level: 70 },
+      { name: "Notion", level: 70 },
+      { name: "Figma", level: 70 },
+    ],
+  },
 ];
 
 export const NavItems: NavItemProps[] = [
@@ -64,24 +82,6 @@ export const NavItems: NavItemProps[] = [
     position: "right",
   },
 ];
-
-// export const HorizontalCardList: HorizontalCardProps[] = [
-//   {
-//     tittle: "About me 🧑🏾‍💻",
-//     description:
-//       "Systems Engineering student at the National Autonomous University of Honduras, with experience in developing web and mobile applications. I began my journey in tech through hardware support and repair, later expanding into graphic design, and eventually finding my passion in software development. I stand out for my ability to learn quickly, adapt to new challenges, and maintain a strong commitment to quality in every project.",
-//   },
-//   {
-//     tittle: "Academic Background 📚",
-//     description:
-//       "I'm in the final year of my Systems Engineering degree at the National Autonomous University of Honduras. My academic journey began with a technical high school education in Computer Science, which laid a strong foundation in IT and problem-solving. I'm fluent in both Spanish and English, and I also have skills in graphic design. I hold a CCNA 1 certification in networking fundamentals, and I completed the Oracle Next Education (ONE) programming course offered by Alura Latam, where I gained practical experience in software development and industry best practices.",
-//   },
-//   {
-//     tittle: "Experience 📐",
-//     description:
-//       "Although I haven't yet worked in a formal job position, I've actively participated in several university and personal projects that reflect my technical skills and passion for software development. Throughout my studies, I've worked on web and mobile applications, applying technologies like React, Spring Boot, FastAPI, and SQL/NoSQL databases. These projects have helped me strengthen my abilities in full-stack development, version control with Git, and agile teamwork.",
-//   },
-// ];
 
 export const SocialList: Social[] = [
   {
@@ -132,6 +132,7 @@ export const projectsList: ProjectProps[] = [
       "Plataforma accesible desarrollada para PROSENE-UNAH, que permite a estudiantes con necesidades especiales enviar y rastrear solicitudes en línea. Desarrollada con Vue.js, FastAPI y PostgreSQL, mejora la comunicación y gestión entre estudiantes y el personal del programa de atención especial.",
     img: "prosene.png",
     href: "/projects/prosene",
+    date: "2025-03-15T14:30:00.000Z",
   },
   {
     slug: "/xatruch",
@@ -140,14 +141,16 @@ export const projectsList: ProjectProps[] = [
       "Sistema integral para la gestión de vuelos, rutas, horarios y pasajeros de la aerolínea Xatruch. Desarrollado con Java, Spring, Laravel y MySQL, permite registrar vuelos nacionales e internacionales, controlar aeronaves y ofrecer acceso por roles, optimizando procesos operativos y administrativos.",
     img: "plane.jpg",
     href: "/projects/xatruch",
+    date: "2023-09-15T14:30:00.000Z",
   },
   {
     slug: "/classifier",
     title: "Cats and dogs classifier",
     description:
-      "Aplicación web que clasifica en tiempo real si una imagen o video muestra un perro o un gato, utilizando redes neuronales convolucionales (CNN) entrenadas con TensorFlow. Cuenta con una interfaz web construida en HTML, CSS y JavaScript para cargar imágenes o usar la cámara directamente desde el navegador",
+      "Aplicacion web que redes neuronales y convolucionales para clasificar si lo visto por la camara es un gato o un perro. Desarrollado en Python y herramientas web como HTML, CSS y JS",
     img: "classifier.png",
     href: "/projects/classifier",
+    date: "2024-03-15T14:30:00.000Z",
   },
   {
     slug: "/ecommerce",
@@ -156,12 +159,15 @@ export const projectsList: ProjectProps[] = [
       "Infraestructura para una plataforma de e-commerce manejada con Terraform",
     img: "general-diagram.png",
     href: "/projects/ecommerce",
+    date: "2025-06-28T14:30:00.000Z",
   },
   {
     slug: "/smart-cache",
     title: "Smart cache",
-    description: "Creacion de un Pipeline de datos y API con cache inteligente",
-    img: "smart-cache.gif",
+    description:
+      "Creacion de un Pipeline de datos y API con cache inteligente, desarrollado en Python, desplegado en Azure",
+    img: "smart-cache-low.gif",
     href: "/projects/smart-cache",
+    date: "2025-07-22T14:30:00.000Z",
   },
 ];
