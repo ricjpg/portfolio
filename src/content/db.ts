@@ -170,4 +170,13 @@ export const projectsList: ProjectProps[] = [
     href: "/projects/smart-cache",
     date: "2025-07-22T14:30:00.000Z",
   },
+  {
+    slug: "/poke-q",
+    title: "Poke Queue",
+    description:
+      "Generacion asincrona de reportes csv mediante el consumo de PokeAPI, utilizando Storages Account",
+    img: "poke-q.gif",
+    href: "/projects/poke-q",
+    date: "2025-08-07T14:30:00.000Z",
+  },
 ];
