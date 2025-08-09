@@ -164,9 +164,13 @@ Sin embargo para poder dejarlo listo de un dataframe es necesario poder 'Aplanar
 <br />
 
 **Problema**: DataFrames/CSV no manejan bien estructuras anidadas
-Para Stats: Sacar todo de la caja
-Los stats estaban guardados en una "caja" llamada "stats". La solución fue romper esa caja y poner cada stat directamente como una columna separada en la tabla.
-Es como si tuvieras una carpeta llamada "Calificaciones" con hojas sueltas adentro. En lugar de tener la carpeta, sacas cada hoja y las pones directamente sobre el escritorio, cada una con su propio lugar.
+
+<br />
+Los stats estaban guardados en un dict llamada "stats". La solución fue romper el
+diccionario y poner cada stat directamente como una columna separada en la tabla.
+Es como si tuvieras una carpeta llamada "Calificaciones" con hojas sueltas adentro.
+En lugar de tener la carpeta, sacas cada hoja y las pones directamente sobre el escritorio,
+cada una con su propio lugar.
 
 - Stats: `stats.hp` → `hp` (columna directa)
 
@@ -182,10 +186,14 @@ for stat_item in pokemon_data['stats']:
 ```
 
 Para Abilities: Expandir horizontalmente
-Las abilities eran una lista de elementos complejos (cada ability tenía nombre, si era oculta, y un número de slot). No podías poner una lista en una celda de Excel.
-La solución fue crear múltiples columnas para cada ability: una columna para el nombre de la primera ability, otra para si es oculta, otra para su slot. Luego lo mismo para la segunda ability, y así sucesivamente.
 
-- Abilities: Array complejo → múltiples columnas (`ability_1_name`, `ability_1_is_hidden`, etc.)
+<br />
+Las abilities eran una lista de elementos complejos (cada ability tenía nombre, si
+era oculta, y un número de slot). La solución fue crear múltiples columnas para cada
+ability: una columna para el nombre de la primera ability. Luego lo mismo para la
+segunda ability, y así sucesivamente.
+
+- Abilities: Array complejo → múltiples columnas (`ability_1_name`, `ability_1_name`, etc.)
 
 ```python
 # Antes
@@ -198,7 +206,7 @@ La solución fue crear múltiples columnas para cada ability: una columna para e
 abilities = extract_abilities(pokemon_data['abilities'])
 for i, ability in enumerate(abilities, 1):
     flat_data[f'ability_{i}_name'] = ability['name']        # ability_1_name: blaze
-    flat_data[f'ability_{i}_is_hidden'] = ability['is_hidden']  # ability_1_is_hidden: false
+    flat_data[f'ability_{i}_name'] = ability['name']        # ability_1_name: blaze
 ```
 
 </Frame>
