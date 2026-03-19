@@ -38,7 +38,7 @@ export const translations: Translations = {
         skills: [
           { name: "HTML+CSS", level: 60 },
           { name: "JavaScript", level: 60 },
-          { name: "React", level: 65 },
+          { name: "React", level: 60 },
           { name: "AstroJS", level: 65 },
         ],
       },
@@ -56,7 +56,7 @@ export const translations: Translations = {
         skills: [
           { name: "Terraform", level: 50 },
           { name: "AzureCloud", level: 50 },
-          { name: "AWS", level: 50 },
+          { name: "AWS", level: 30 },
           { name: "CI/CD", level: 50 },
           { name: "Cloudflare tunnels and pages", level: 60 },
         ],
@@ -271,7 +271,7 @@ export const translations: Translations = {
         skills: [
           { name: "HTML+CSS", level: 60 },
           { name: "JavaScript", level: 60 },
-          { name: "React", level: 65 },
+          { name: "React", level: 60 },
           { name: "AstroJS", level: 65 },
         ],
       },
@@ -289,7 +289,7 @@ export const translations: Translations = {
         skills: [
           { name: "Terraform", level: 50 },
           { name: "AzureCloud", level: 50 },
-          { name: "AWS", level: 55 },
+          { name: "AWS", level: 30 },
           { name: "CI/CD", level: 50 },
           { name: "Cloudflare tunnels and pages", level: 60 },
         ],
