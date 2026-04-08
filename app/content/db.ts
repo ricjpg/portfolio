@@ -147,7 +147,7 @@ export const translations: Translations = {
     summary: {
       title: "Professional Summary",
       content:
-        "Results-driven Systems Engineering student with a strong foundation in web and mobile application development. Proficient in frontend and backend technologies including React, FastAPI, Spring Boot, and various SQL databases. Adept at quickly learning new technologies and adapting to dynamic project requirements. Ability to manage multiple projects effectively while maintaining high standards of quality. Committed to continuous improvement and passionate about leveraging technology to solve real-world problems.",
+        "Results-driven Systems Engineering student with a strong foundation in web application development. Proficient in frontend and backend technologies including React, FastAPI, Spring Boot, and various SQL databases. Adept at quickly learning new technologies and adapting to dynamic project requirements. Ability to manage multiple projects effectively while maintaining high standards of quality. Committed to continuous improvement and passionate about leveraging technology to solve real-world problems.",
     },
     hero: {
       greeting: "Hello, I'm",
@@ -380,7 +380,7 @@ export const translations: Translations = {
     summary: {
       title: "Resumen Profesional",
       content:
-        "Estudiante de Ingeniería en Sistemas orientado a resultados con una sólida base en desarrollo de aplicaciones web y móviles. Competente en tecnologías frontend y backend incluyendo React, FastAPI, Spring Boot, y varias bases de datos SQL. Hábil para aprender rápidamente nuevas tecnologías y adaptarse a requisitos dinámicos de proyectos. Capacidad para gestionar múltiples proyectos efectivamente manteniendo altos estándares de calidad. Comprometido con la mejora continua y apasionado por aprovechar la tecnología para resolver problemas del mundo real.",
+        "Estudiante de Ingeniería en Sistemas orientado a resultados con una sólida base en desarrollo de aplicaciones web. Competente en tecnologías frontend y backend incluyendo React, FastAPI, Spring Boot, y varias bases de datos SQL. Hábil para aprender rápidamente nuevas tecnologías y adaptarse a requisitos dinámicos de proyectos. Capacidad para gestionar múltiples proyectos efectivamente manteniendo altos estándares de calidad. Comprometido con la mejora continua y apasionado por aprovechar la tecnología para resolver problemas del mundo real.",
     },
     hero: {
       greeting: "Hola, yo soy",
